@@ -22,7 +22,7 @@ public abstract class MixinLivingEntity {
     private void anubis$modifySwingDuration(CallbackInfoReturnable<Integer> cir) {
         SlowSwingModule module = ModuleRegistry.get(SlowSwingModule.class);
         if (module != null && module.isEnabled()) {
-            if (this == class_310.method_1551().field_1724) {
+            if ((Object)this == class_310.method_1551().field_1724) {
                 cir.setReturnValue(module.getModifiedSwingDuration((Integer)cir.getReturnValue()));
             }
         }

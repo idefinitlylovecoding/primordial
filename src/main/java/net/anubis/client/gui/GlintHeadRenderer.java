@@ -38,6 +38,11 @@ public final class GlintHeadRenderer implements class_10508 {
         return null;
     }
 
+    @Override
+    public void method_65694(Void unused, class_811 context, class_4587 pose, class_11659 collector, int light, int overlay, boolean foil, int outline) {
+        this.method_65699(context, pose, collector, light, overlay, foil, outline);
+    }
+
     public static class_1799 stack() {
         class_1799 head = new class_1799(class_1802.field_8575);
         head.method_57379(class_9334.field_54199, ID);

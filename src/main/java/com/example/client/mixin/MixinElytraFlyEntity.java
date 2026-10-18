@@ -25,7 +25,7 @@ public abstract class MixinElytraFlyEntity {
         } else {
             class_310 mc = class_310.method_1551();
             class_746 player = mc.field_1724;
-            if (this == player && mc.method_18854()) {
+            if ((Object)this == player && mc.method_18854()) {
                 return module.canPacketEfly(player) ? class_4050.field_18077 : original;
             } else {
                 return original;

@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,22 +24,25 @@ jobs:
           gradle-version: current
 
       - name: Build
+        id: build
         shell: bash
         run: |
           set -o pipefail
-          if ! gradle build --no-daemon 2>&1 | tee build.log; then
-            # Surface the important part of the log as annotations
-            grep -nE 'error:|What went wrong|Could not|FAILURE|> ' build.log | head -c 60000 > errs.txt || true
-            echo "errors: $(grep -c 'error:' build.log)" >> errs.txt
-            python3 - <<'PY'
-          import urllib.parse
-          t=open('errs.txt').read()
-          for i in range(0, len(t), 8000):
-              chunk=t[i:i+8000].replace('%','%25').replace('\r','').replace('\n','%0A')
-              print(f'::error title=build-log-{i//8000}::{chunk}')
-          PY
-            exit 1
-          fi
+          gradle build --no-daemon 2>&1 | tee build.log
+
+      - name: Publish build log on failure
+        if: failure() && steps.build.outcome == 'failure'
+        shell: bash
+        run: |
+          git config user.name "ci"
+          git config user.email "ci@users.noreply.github.com"
+          cp build.log /tmp/build.log
+          git checkout --orphan ci-logs
+          git rm -rfq . || true
+          cp /tmp/build.log build.log
+          git add build.log
+          git commit -qm "build log for ${GITHUB_SHA}"
+          git push -f origin ci-logs
 
       - name: Upload jar
         uses: actions/upload-artifact@v5

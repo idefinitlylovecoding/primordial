@@ -284,10 +284,11 @@ final class OrderRestock {
                                 } else {
                                     this.checkItem(view);
                                     String problem = this.checkReview(view, price);
+                                    Dialogs.View reviewView = view;
                                     if (problem != null) {
                                         Dialogs.Button cancel = view.labelled("cancel");
                                         if (cancel != null) {
-                                            this.worker.call(() -> Dialogs.press(Gui.mc(), view, cancel, Map.of()));
+                                            this.worker.call(() -> Dialogs.press(Gui.mc(), reviewView, cancel, Map.of()));
                                         }
 
                                         throw fail("Order review did not match (" + problem + "), cancelled");
@@ -296,14 +297,14 @@ final class OrderRestock {
                                         Dialogs.Button createButton = view.labelled("create order", "create", "confirm");
                                         if (createButton == null) {
                                             throw fail("No Create Order button, " + view.describe());
-                                        } else if (!this.worker.call(() -> Dialogs.press(Gui.mc(), view, createButton, Map.of()))) {
+                                        } else if (!this.worker.call(() -> Dialogs.press(Gui.mc(), reviewView, createButton, Map.of()))) {
                                             throw fail("The review menu closed");
                                         } else {
                                             this.worker
                                                 .waitFor(
                                                     () -> this.bot.orderedAt >= mark
                                                         || Dialogs.current(Gui.mc()) == null
-                                                        || Dialogs.current(Gui.mc()).dialog() != view.dialog(),
+                                                        || Dialogs.current(Gui.mc()).dialog() != reviewView.dialog(),
                                                     8000L
                                                 );
                                             this.worker.sleep(300L);

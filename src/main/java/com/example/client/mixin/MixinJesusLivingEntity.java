@@ -22,7 +22,7 @@ public abstract class MixinJesusLivingEntity {
             return true;
         } else {
             JesusModule jesus = JesusModule.active;
-            return jesus != null && this == class_310.method_1551().field_1724 ? jesus.canWalkOnFluid(fluidState) : false;
+            return jesus != null && (Object)this == class_310.method_1551().field_1724 ? jesus.canWalkOnFluid(fluidState) : false;
         }
     }
 }

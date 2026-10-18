@@ -18,7 +18,7 @@ public abstract class MixinNoInvLeakSlot {
         at = {@At("RETURN")}
     )
     private class_2960 anubis$noInvLeakSilhouette(class_2960 icon) {
-        class_1735 self = (class_1735)this;
+        class_1735 self = (class_1735)(Object)this;
         return icon != null && NoInvLeakModule.overlaying() && self.field_7871 instanceof class_1661 && self.method_7681() ? null : icon;
     }
 }

@@ -33,6 +33,11 @@ public final class GlintHeadRenderer implements class_10508 {
         this.model = model;
     }
 
+    @Override
+    public Void method_65695(class_1799 stack) {
+        return null;
+    }
+
     public static class_1799 stack() {
         class_1799 head = new class_1799(class_1802.field_8575);
         head.method_57379(class_9334.field_54199, ID);

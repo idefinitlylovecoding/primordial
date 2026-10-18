@@ -31,7 +31,7 @@ public abstract class MixinMenusJoinMultiplayerScreen extends class_437 {
         at = {@At("TAIL")}
     )
     private void anubis$addOverlay(CallbackInfo ci) {
-        this.anubis$overlay = AnubisTitleScreen.enabled() ? new MultiplayerOverlay((class_500)this) : null;
+        this.anubis$overlay = AnubisTitleScreen.enabled() ? new MultiplayerOverlay((class_500)(Object)this) : null;
         if (this.anubis$overlay != null) {
             this.anubis$overlay.show();
         }

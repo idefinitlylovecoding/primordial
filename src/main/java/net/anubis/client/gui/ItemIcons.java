@@ -666,12 +666,12 @@ public final class ItemIcons {
             GL11.glTexParameteri(3553, 33085, 0);
             GL11.glTexParameteri(3553, 10241, 9728);
             GL11.glTexParameteri(3553, 10240, 9728);
-            unpack = holds(gl);
+            unpack = holds(gl) ? 1 : 0;
         } finally {
             GL11.glBindTexture(3553, bound);
         }
 
-        return (boolean)unpack;
+        return unpack != 0;
     }
 
     static boolean alive(GpuTexture texture) {

@@ -25,6 +25,12 @@ dependencies {
     mappings "net.fabricmc:intermediary:${project.minecraft_version}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+    // Full Fabric API at compile time: provides the Indigo renderer classes and
+    // Fabric's transitive access wideners that the client relies on. Players
+    // install Fabric API alongside the mod, as with the original.
+    modCompileOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    modLocalRuntime "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
     // Fabric API modules bundled by the original release
     [
         'fabric-api-base:1.0.5+4ebb5c083e',

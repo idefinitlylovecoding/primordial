@@ -42,7 +42,7 @@ public final class BlockEntityDebugModule extends ClientModule {
     private static final Set<String> NEW_IN_TABLE = Set.of("minecraft:jukebox", "minecraft:piston", "minecraft:sticky_piston");
     private final ModeSetting sDetection = this.addSetting("detection", new ModeSetting("Detection", "All", "All", "Below Zero", "Below -20", "Below -30"));
     private final BooleanSetting sBlockFilter = this.addSetting("block-filter", new BooleanSetting("Block Filter", false));
-    private final EspStyle style = new EspStyle((x$0, x$1) -> (S)this.addSetting(x$0, x$1), "Boxes", 0.8F, 256.0F);
+    private final EspStyle style = new EspStyle(this::addSetting, "Boxes", 0.8F, 256.0F);
     private final BooleanSetting sTracers = this.addSetting("tracers", new BooleanSetting("Tracers", true));
     private final BooleanSetting sCustomTracerColor = this.addSetting("custom-tracer-color", new BooleanSetting("Custom Tracer Color", false));
     private final ColorSetting sTracerColor = this.addSetting("tracer-color", new ColorSetting("Tracer Color", -1));

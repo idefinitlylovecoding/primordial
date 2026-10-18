@@ -26,6 +26,6 @@ public abstract class MixinEntityControlLocalPlayer {
         at = {@At("RETURN")}
     )
     private class_1316 anubis$boatFlyCancelJump(class_1316 original) {
-        return original != null && BoatFlyModule.cancelsMountJump((class_746)this) ? null : original;
+        return original != null && BoatFlyModule.cancelsMountJump((class_746)(Object)this) ? null : original;
     }
 }

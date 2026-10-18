@@ -51,7 +51,7 @@ public abstract class MixinCharacterAvatarRenderer<T extends class_11890 & class
     private void anubis$characterFirstPersonHand(
         class_4587 poseStack, class_11659 collector, int light, class_2960 skin, class_630 arm, boolean sleeve, CallbackInfo ci
     ) {
-        if (CharacterLayer.firstPersonHand((class_591)this.method_4038(), poseStack, collector, light, arm)) {
+        if (CharacterLayer.firstPersonHand((class_591)(Object)this.method_4038(), poseStack, collector, light, arm)) {
             ci.cancel();
         }
     }

@@ -21,7 +21,7 @@ public abstract class MixinJumpCirclesLivingEntity {
     )
     private void anubis$jumpCircle(CallbackInfo ci) {
         if (JumpCirclesModule.active != null) {
-            JumpCirclesModule.onJump((class_1309)this);
+            JumpCirclesModule.onJump((class_1309)(Object)this);
         }
     }
 }

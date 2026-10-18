@@ -18,7 +18,7 @@ public abstract class MixinBoatNoclipAbstractBoat {
     )
     private boolean anubis$boatNoclipCollide(boolean original) {
         if (original && BoatNoclipModule.active != null) {
-            class_10255 boat = (class_10255)this;
+            class_10255 boat = (class_10255)(Object)this;
             return !boat.method_73183().method_8608() || boat.method_5642() != class_310.method_1551().field_1724;
         } else {
             return original;

@@ -25,7 +25,7 @@ public abstract class MixinTimeChangerClientLevel {
         if (timeChanger == null) {
             original.call(new Object[]{levelData, dayTime});
         } else {
-            class_638 level = (class_638)this;
+            class_638 level = (class_638)(Object)this;
             long shown = levelData.method_217();
             long forced = timeChanger.interceptServerDayTime(level, dayTime);
             original.call(new Object[]{levelData, forced});

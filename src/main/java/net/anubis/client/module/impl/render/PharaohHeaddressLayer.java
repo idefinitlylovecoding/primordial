@@ -22,6 +22,11 @@ public final class PharaohHeaddressLayer extends class_3887<class_10055, class_5
         super(parent);
     }
 
+    @Override
+    public void method_4199(class_4587 poseStack, class_11659 collector, int light, class_10055 state, float yRot, float xRot) {
+        this.submit(poseStack, collector, light, state, yRot, xRot);
+    }
+
     public void submit(class_4587 poseStack, class_11659 collector, int light, class_10055 state, float yRot, float xRot) {
         HeadCosmeticModule module = HeadCosmeticModule.worn;
         if (module != null && !state.field_53333 && module.wears(state)) {

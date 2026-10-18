@@ -26,7 +26,7 @@ import net.minecraft.class_3708;
 
 @Environment(EnvType.CLIENT)
 public final class StorageEspModule extends ClientModule implements ChunkScanner.Consumer {
-    private final EspStyle style = new EspStyle((x$0, x$1) -> (S)this.addSetting(x$0, x$1), "Outline", 0.25F, 256.0F);
+    private final EspStyle style = new EspStyle(this::addSetting, "Outline", 0.25F, 256.0F);
     private final BooleanSetting sTracers = this.addSetting("tracers", new BooleanSetting("Tracers", false));
     private final StorageEspModule.Type chest = new StorageEspModule.Type(
         "Chest", true, -6530304, "chests", "chest-color", "chest-tracers", "chest-tracer-color"

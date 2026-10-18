@@ -68,7 +68,7 @@ public final class VehicleAntiKick {
                     && this.shouldFlyDown(currentY)
                     && EntityControlVehicleHook.isOnAir(vehicle)
                     && !vehicle.method_70987()) {
-                    ((AccessorBoatFlyServerboundMoveVehiclePacket)packet)
+                    ((AccessorBoatFlyServerboundMoveVehiclePacket)(Object)packet)
                         .anubis$setPosition(new class_243(pos.field_1352, this.lastPacketY - 0.0313, pos.field_1350));
                     this.sentPacket = true;
                     this.delayLeft = delay;

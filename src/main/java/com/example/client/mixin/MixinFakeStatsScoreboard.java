@@ -20,7 +20,7 @@ public abstract class MixinFakeStatsScoreboard {
         cancellable = true
     )
     private void anubis$fakeSidebar(class_8646 slot, class_266 objective, CallbackInfo ci) {
-        if (FakeStats.redirect((class_269)this, slot, objective)) {
+        if (FakeStats.redirect((class_269)(Object)this, slot, objective)) {
             ci.cancel();
         }
     }

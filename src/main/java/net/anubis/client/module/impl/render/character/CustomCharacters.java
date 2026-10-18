@@ -68,7 +68,7 @@ final class CustomCharacters {
                 String stamp = name + Files.size(filex) + Files.getLastModifiedTime(filex).toMillis() + "3";
                 String id = "custom_" + slug(name) + "_" + Integer.toHexString(stamp.hashCode());
                 ids.add(id);
-                out.add(new BakedDesign(id, name, () -> open(file, id)));
+                out.add(new BakedDesign(id, name, () -> open(filex, id)));
             } catch (IOException var9) {
                 LOGGER.warn("[Anubis] Skipping custom character {}: {}", filex, var9.toString());
             }

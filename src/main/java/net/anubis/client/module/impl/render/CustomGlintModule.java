@@ -218,7 +218,7 @@ public final class CustomGlintModule extends ClientModule {
                                 image.close();
                             }
 
-                            return (boolean)y;
+                            return y != 0;
                         }
 
                         if (image != null) {
@@ -276,7 +276,7 @@ public final class CustomGlintModule extends ClientModule {
                 }
 
                 image.close();
-                return (boolean)y;
+                return y != 0;
             } catch (RuntimeException var9) {
                 CustomGlintModule.LOGGER.warn("[Anubis] Custom Glint could not write {}", this.id, var9);
                 return false;

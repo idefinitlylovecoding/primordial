@@ -92,7 +92,7 @@ public final class SeedWorldgen {
     private static final int MAX_STORED_BIOMES = 4096;
     private static final int MAX_CARVER_BIOMES = 65536;
     private final class_4543 biomeManager;
-    private static final class_5455 CARVER_REGISTRIES = new class_6891(List.of(new class_2370(class_7924.field_41236, Lifecycle.stable()).method_40276()));
+    private static final class_5455 CARVER_REGISTRIES = new class_6891(List.<class_2378<?>>of(new class_2370(class_7924.field_41236, Lifecycle.stable()).method_40276()));
     private static final Set<class_5321<class_1959>> TALL_TREES = Set.of(
         class_1972.field_9417, class_1972.field_9440, class_1972.field_35118, class_1972.field_35119, class_1972.field_35113, class_1972.field_38748
     );
@@ -267,7 +267,7 @@ public final class SeedWorldgen {
                 for (class_6880<class_2922<?>> holder : biome.method_30976()) {
                     random.method_12663(this.seed + index, from.field_9181, from.field_9180);
                     if (((class_2922)holder.comp_349()).method_12669(random)) {
-                        ((class_2922)holder.comp_349()).method_12668(context, chunk, carverBiomeManager::method_22393, random, aquifer, from, mask);
+                        ((class_2922)holder.comp_349()).method_12668(context, chunk, pos -> carverBiomeManager.method_22393((class_2338)pos), random, aquifer, from, mask);
                     }
 
                     index++;
@@ -284,6 +284,16 @@ public final class SeedWorldgen {
         }
 
         return new class_2359<class_6880<class_1959>>() {
+            @Override
+            public int method_10206(class_6880<class_1959> biome) {
+                return this.getId(biome);
+            }
+
+            @Override
+            public class_6880<class_1959> method_10200(int id) {
+                return this.byId(id);
+            }
+
             public int getId(class_6880<class_1959> biome) {
                 Integer id = ids.get(biome);
                 return id == null ? -1 : id;

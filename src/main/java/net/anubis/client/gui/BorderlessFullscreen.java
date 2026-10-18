@@ -19,7 +19,7 @@ public final class BorderlessFullscreen {
     public static void tick() {
         class_1041 window = class_310.method_1551().method_22683();
         if (window.method_4498()) {
-            BorderlessFullscreen.Switchable switchable = (BorderlessFullscreen.Switchable)window;
+            BorderlessFullscreen.Switchable switchable = (BorderlessFullscreen.Switchable)(Object)window;
             if (wanted() != switchable.anubis$isBorderless()) {
                 switchable.anubis$reapplyMode();
             }

@@ -37,7 +37,7 @@ public abstract class MixinPlayer {
             return original;
         } else {
             class_746 player = class_310.method_1551().field_1724;
-            if (player != null && this == player) {
+            if (player != null && (Object)this == player) {
                 float override = fly.getOffGroundSpeed(player);
                 return override != -1.0F ? override : original;
             } else {

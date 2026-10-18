@@ -36,7 +36,7 @@ public abstract class MixinLocalPlayer {
         at = {@At("HEAD")}
     )
     private void anubis$walkServerRotation(CallbackInfo ci) {
-        class_746 self = (class_746)this;
+        class_746 self = (class_746)(Object)this;
         if (class_310.method_1551().field_1724 == self) {
             ServerRotation.applyForMovement(self);
         }
@@ -47,7 +47,7 @@ public abstract class MixinLocalPlayer {
         at = {@At("RETURN")}
     )
     private void anubis$finishServerRotation(CallbackInfo ci) {
-        ServerRotation.finishTick((class_746)this);
+        ServerRotation.finishTick((class_746)(Object)this);
     }
 
     @Inject(
@@ -59,7 +59,7 @@ public abstract class MixinLocalPlayer {
         )}
     )
     private void anubis$freecamAfterInput(CallbackInfo ci) {
-        class_746 self = (class_746)this;
+        class_746 self = (class_746)(Object)this;
         class_310 mc = class_310.method_1551();
         if (mc.field_1724 == self) {
             FreecamModule.drive(mc);
@@ -71,7 +71,7 @@ public abstract class MixinLocalPlayer {
         at = {@At("HEAD")}
     )
     private void anubis$freecamBeforeSend(CallbackInfo ci) {
-        class_746 self = (class_746)this;
+        class_746 self = (class_746)(Object)this;
         class_310 mc = class_310.method_1551();
         if (mc.field_1724 == self) {
             FreecamModule.drive(mc);
@@ -83,7 +83,7 @@ public abstract class MixinLocalPlayer {
         at = {@At("RETURN")}
     )
     private void anubis$swapOutServerRotation(CallbackInfo ci) {
-        class_746 self = (class_746)this;
+        class_746 self = (class_746)(Object)this;
         if (class_310.method_1551().field_1724 == self) {
             ServerRotation.afterSend(self);
         }

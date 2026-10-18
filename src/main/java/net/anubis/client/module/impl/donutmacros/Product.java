@@ -152,7 +152,7 @@ record Product(
 
     private static int levelOf(class_9304 present, String key) {
         for (Entry<class_6880<class_1887>> entry : present.method_57539()) {
-            String path = ((class_6880)entry.getKey()).method_40230().map(k -> k.method_29177().method_12832()).orElse("");
+            String path = entry.getKey().method_40230().map(k -> k.method_29177().method_12832()).orElse("");
             if (ServerText.key(path).equals(key)) {
                 return entry.getIntValue();
             }

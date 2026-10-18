@@ -30,7 +30,7 @@ public final class SpawnerNotifierModule extends ClientModule implements ChunkSc
     private final BooleanSetting sSound = this.addSetting("sound", new BooleanSetting("Sound", true));
     private final BooleanSetting sRender = this.addSetting("render", new BooleanSetting("Render", true));
     private final ColorSetting sColor = this.addSetting("color", new ColorSetting("Color", -587246251));
-    private final EspStyle style = new EspStyle((x$0, x$1) -> (S)this.addSetting(x$0, x$1), "Outline", 0.1F, 256.0F);
+    private final EspStyle style = new EspStyle(this::addSetting, "Outline", 0.1F, 256.0F);
     private final BlockLayer layer = new BlockLayer(new BlockLayer.Palette() {
         @Override
         public int color(Object kind) {

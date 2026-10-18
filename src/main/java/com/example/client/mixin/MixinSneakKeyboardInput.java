@@ -21,7 +21,7 @@ public abstract class MixinSneakKeyboardInput {
     private void anubis$forceSneak(CallbackInfo ci) {
         SneakModule sneak = SneakModule.active;
         if (sneak != null && sneak.doVanilla()) {
-            class_744 input = (class_744)this;
+            class_744 input = (class_744)(Object)this;
             class_10185 keys = input.field_54155;
             if (!keys.comp_3164()) {
                 input.field_54155 = new class_10185(

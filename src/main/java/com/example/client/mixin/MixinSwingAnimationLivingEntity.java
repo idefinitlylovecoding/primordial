@@ -24,7 +24,7 @@ public abstract class MixinSwingAnimationLivingEntity {
     )
     private int anubis$swingTempo(int ticks) {
         SwingAnimationModule module = SwingAnimationModule.active;
-        return module != null && this == class_310.method_1551().field_1724 ? module.swingTicks(ticks) : ticks;
+        return module != null && (Object)this == class_310.method_1551().field_1724 ? module.swingTicks(ticks) : ticks;
     }
 
     @Inject(
@@ -37,7 +37,7 @@ public abstract class MixinSwingAnimationLivingEntity {
     )
     private void anubis$latchSwing(class_1268 hand, boolean broadcast, CallbackInfo ci) {
         SwingAnimationModule module = SwingAnimationModule.active;
-        if (module != null && this == class_310.method_1551().field_1724) {
+        if (module != null && (Object)this == class_310.method_1551().field_1724) {
             module.latch();
         }
     }

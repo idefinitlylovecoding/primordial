@@ -55,7 +55,7 @@ public abstract class MixinBorderlessWindow implements BorderlessFullscreen.Swit
     )
     private void anubis$setMode(CallbackInfo ci) {
         if (this.field_5191 && BorderlessFullscreen.wanted()) {
-            class_313 monitor = this.field_5195.method_1681((class_1041)this);
+            class_313 monitor = this.field_5195.method_1681((class_1041)(Object)this);
             if (monitor != null) {
                 boolean exclusive = GLFW.glfwGetWindowMonitor(this.field_5187) != 0L;
                 if (!exclusive && !this.anubis$borderless) {

@@ -23,7 +23,7 @@ public abstract class MixinMovementCorrectionKeyboardInput {
         at = {@At("TAIL")}
     )
     private void anubis$shapeInput(CallbackInfo ci) {
-        class_744 input = (class_744)this;
+        class_744 input = (class_744)(Object)this;
         class_746 player = class_310.method_1551().field_1724;
         if (player != null && player.field_3913 == input) {
             class_10185 keys = input.field_54155;

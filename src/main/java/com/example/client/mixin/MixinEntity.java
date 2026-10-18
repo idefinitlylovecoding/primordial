@@ -21,7 +21,7 @@ public class MixinEntity {
         cancellable = true
     )
     private void anubis$isCurrentlyGlowing(CallbackInfoReturnable<Boolean> cir) {
-        class_1297 self = (class_1297)this;
+        class_1297 self = (class_1297)(Object)this;
         if (self.method_73183().method_8608()) {
             if (EspModule.shouldGlow(self) || ItemEspModule.shouldGlow(self)) {
                 cir.setReturnValue(true);
@@ -35,7 +35,7 @@ public class MixinEntity {
         cancellable = true
     )
     private void anubis$getTeamColor(CallbackInfoReturnable<Integer> cir) {
-        class_1297 self = (class_1297)this;
+        class_1297 self = (class_1297)(Object)this;
         if (self.method_73183().method_8608()) {
             if (EspModule.shouldGlow(self)) {
                 cir.setReturnValue(EspModule.glowColor(self));
@@ -52,7 +52,7 @@ public class MixinEntity {
     )
     private void anubis$freecamOwnBody(class_1657 viewer, CallbackInfoReturnable<Boolean> cir) {
         FreecamModule freecam = FreecamModule.active;
-        if (freecam != null && freecam.drawsSelf((class_1297)this, viewer)) {
+        if (freecam != null && freecam.drawsSelf((class_1297)(Object)this, viewer)) {
             cir.setReturnValue(false);
         }
     }

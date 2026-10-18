@@ -21,7 +21,7 @@ public abstract class MixinCharacterPlayerModel {
         cancellable = true
     )
     private void anubis$characterHand(class_10055 state, class_1306 arm, class_4587 poseStack, CallbackInfo ci) {
-        if (CharacterLayer.translateToHand((class_591)this, state, arm, poseStack)) {
+        if (CharacterLayer.translateToHand((class_591)(Object)this, state, arm, poseStack)) {
             ci.cancel();
         }
     }

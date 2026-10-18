@@ -197,8 +197,8 @@ public final class CustomCrosshairModule extends ClientModule implements HudOver
     }
 
     private void drawShape(ImDrawList dl, CustomCrosshairModule.Geometry g, int color, float grow) {
-        String x0 = this.style.get();
-        switch (x0) {
+        String shape = this.style.get();
+        switch (shape) {
             case "Dot":
                 dl.addCircleFilled(g.cx(), g.cy(), Math.max(1.0F, g.size() * 0.5F) + grow, color, 0);
                 break;

@@ -20,7 +20,7 @@ public abstract class MixinEntityControlAbstractBoat {
         )}
     )
     private boolean anubis$entityControlInputLeft(boolean original) {
-        return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)this);
+        return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)(Object)this);
     }
 
     @ModifyExpressionValue(
@@ -32,6 +32,6 @@ public abstract class MixinEntityControlAbstractBoat {
         )}
     )
     private boolean anubis$entityControlInputRight(boolean original) {
-        return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)this);
+        return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)(Object)this);
     }
 }

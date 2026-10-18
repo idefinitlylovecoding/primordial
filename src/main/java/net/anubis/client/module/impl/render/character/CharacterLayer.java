@@ -17,6 +17,11 @@ public final class CharacterLayer extends class_3887<class_10055, class_591> {
         super(parent);
     }
 
+    @Override
+    public void method_4199(class_4587 poseStack, class_11659 collector, int light, class_10055 state, float yRot, float xRot) {
+        this.submit(poseStack, collector, light, state, yRot, xRot);
+    }
+
     public void submit(class_4587 poseStack, class_11659 collector, int light, class_10055 state, float yRot, float xRot) {
         WornCharacter worn = CharacterModule.worn(state);
         if (worn != null && (!state.field_53333 || !state.field_53461)) {

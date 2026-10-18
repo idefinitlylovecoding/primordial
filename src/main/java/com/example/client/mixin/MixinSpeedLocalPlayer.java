@@ -21,6 +21,6 @@ public abstract class MixinSpeedLocalPlayer {
     )
     private class_243 anubis$speedMove(class_243 movement, @Local(argsOnly = true) class_1313 type) {
         SpeedModule speed = SpeedModule.active;
-        return speed != null && type == class_1313.field_6308 ? speed.onSelfMove((class_746)this, movement) : movement;
+        return speed != null && type == class_1313.field_6308 ? speed.onSelfMove((class_746)(Object)this, movement) : movement;
     }
 }

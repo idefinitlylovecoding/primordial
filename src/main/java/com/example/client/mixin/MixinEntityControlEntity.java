@@ -19,6 +19,6 @@ public abstract class MixinEntityControlEntity {
         argsOnly = true
     )
     private class_243 anubis$entityControlVehicleMove(class_243 movement, class_1313 type) {
-        return !EntityControlVehicleHook.anyActive ? movement : EntityControlVehicleHook.onEntityMove((class_1297)this, type, movement);
+        return !EntityControlVehicleHook.anyActive ? movement : EntityControlVehicleHook.onEntityMove((class_1297)(Object)this, type, movement);
     }
 }

@@ -141,10 +141,10 @@ public record OreSpec(
         } else {
             JsonObject first = json(id, mods.get(0));
             int rarity = 0;
-            String range = type(first);
+            String firstType = type(first);
             int countMin;
             int countMax;
-            switch (range) {
+            switch (firstType) {
                 case "minecraft:count":
                     JsonElement count = first.get("count");
                     if (count.isJsonPrimitive()) {

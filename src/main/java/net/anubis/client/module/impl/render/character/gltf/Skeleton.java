@@ -97,7 +97,8 @@ final class Skeleton {
                     n -> s.side(n) == sd && (s.is(n, THIGH) || s.core[n].equals("leg")) && (namedKnee < 0 || mesh.under(namedKnee, n) && n != namedKnee)
                 );
                 if (namedKnee < 0 && leg >= 0) {
-                    knee = s.shallowest(n -> n != leg && mesh.under(n, leg) && s.core[n].equals("leg"));
+                    int legNode = leg;
+                    knee = s.shallowest(n -> n != legNode && mesh.under(n, legNode) && s.core[n].equals("leg"));
                     if (knee < 0) {
                         knee = s.mainChild(leg);
                     }

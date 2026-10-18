@@ -107,19 +107,17 @@ public final class EventBus {
                     entry.register();
                 }
             } catch (Error | RuntimeException var9) {
-                Throwable failure = var9;
-
                 for (EventBus.RegistrationEntry<?> entry : entries) {
                     try {
                         entry.unregister();
                     } catch (Error | RuntimeException var8) {
-                        if (failure != var8) {
-                            failure.addSuppressed(var8);
+                        if (var9 != var8) {
+                            var9.addSuppressed(var8);
                         }
                     }
                 }
 
-                throw failure;
+                throw var9;
             }
 
             this.subscriptions.put(subscriber, entries);

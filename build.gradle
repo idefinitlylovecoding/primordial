@@ -1,0 +1,85 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+}
+
+loom {
+    // The source was recovered from a compiled jar, so it uses Fabric's
+    // intermediary names (class_310, method_1551, ...). Compiling against
+    // intermediary mappings lets it build as-is; it can be migrated to
+    // Yarn or Mojang names later.
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:intermediary:${project.minecraft_version}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API modules bundled by the original release
+    [
+        'fabric-api-base:1.0.5+4ebb5c083e',
+        'fabric-key-binding-api-v1:1.1.7+4fc5413f3e',
+        'fabric-lifecycle-events-v1:2.6.15+4ebb5c083e',
+        'fabric-rendering-fluids-v1:3.1.43+4ebb5c083e',
+        'fabric-resource-loader-v0:3.3.4+4fc5413f3e',
+        'fabric-resource-loader-v1:1.0.10+78c8b4663e',
+        'fabric-screen-api-v1:3.1.7+4ebb5c083e',
+    ].each {
+        modImplementation "net.fabricmc.fabric-api:${it}"
+        include "net.fabricmc.fabric-api:${it}"
+    }
+
+    // Dear ImGui (Java bindings) used for the click GUI
+    [
+        "io.github.spair:imgui-java-binding:${project.imgui_version}",
+        "io.github.spair:imgui-java-lwjgl3:${project.imgui_version}",
+        "io.github.spair:imgui-java-natives-windows:${project.imgui_version}",
+        "io.github.spair:imgui-java-natives-linux:${project.imgui_version}",
+        "io.github.spair:imgui-java-natives-macos:${project.imgui_version}",
+    ].each {
+        implementation(it) { transitive = false }
+        include it
+    }
+
+    // SOCKS / HTTP proxy support
+    [
+        "io.netty:netty-codec-socks:${project.netty_version}",
+        "io.netty:netty-handler-proxy:${project.netty_version}",
+    ].each {
+        implementation(it) { transitive = false }
+        include it
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') {
+        expand 'version': project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+    it.options.encoding = 'UTF-8'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    from('LICENSE') {
+        rename { "${it}_${project.archives_base_name}" }
+    }
+}

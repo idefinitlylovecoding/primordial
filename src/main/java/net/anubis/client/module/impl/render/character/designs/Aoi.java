@@ -911,9 +911,11 @@ public final class Aoi extends CharacterDesign {
             float cy = 23.5F;
             float cz = 1.12F;
             float py = ay;
+            float px = ax;
+            float pz = az;
             Shape shell = Shapes.cylinder(cx - ax * 0.1F, cy - ay * 0.1F, cz - az * 0.1F, cx + ax * 0.16F, cy + ay * 0.16F, cz + az * 0.16F, 0.86F, 0.12F)
                 .paint(Paint.field((x, y, z) -> {
-                    float t = (x - cx) * ax + (y - cy) * py + (z - cz) * az;
+                    float t = (x - cx) * px + (y - cy) * py + (z - cz) * pz;
                     return Colors.mix(-14210250, -723206, smooth(0.03F, 0.1F, t));
                 }));
             Shape cushion = Shapes.cylinder(cx - ax * 0.36F, cy - ay * 0.36F, cz - az * 0.36F, cx - ax * 0.08F, cy - ay * 0.08F, cz - az * 0.08F, 0.78F, 0.1F)
